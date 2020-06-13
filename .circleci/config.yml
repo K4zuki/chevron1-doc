@@ -39,6 +39,7 @@ jobs:
             make initdir html BRANCH=$CIRCLE_BRANCH HASH=$SHORT_HASH
       - run:
           name: Make PDF
+          command: |
             make initdir pdf BRANCH=$CIRCLE_BRANCH HASH=$SHORT_HASH
       - run:
           name: Make DOCX
