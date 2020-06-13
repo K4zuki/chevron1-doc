@@ -4,6 +4,7 @@ jobs:
     docker:
       - image: k4zuki/pandocker-alpine:2.8
     steps:
+      - checkout
       - run:
           name: env variables
           command: |
