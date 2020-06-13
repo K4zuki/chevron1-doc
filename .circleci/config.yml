@@ -20,43 +20,42 @@ jobs:
       - run:
           name: get submodule
           command: git submodule update --init
-#      - run:
-#          name: Prepare ghr
-#          command: |
-#            mkdir build
-#            cd build
-#            wget -c https://github.com/tcnksm/ghr/releases/download/v0.5.4/ghr_v0.5.4_linux_amd64.zip
-#            unzip ghr_v0.5.4_linux_amd64.zip
-#            cp ./ghr /usr/local/bin
-#      - run:
-#          name: Prepare QR code for this build
-#          command: |
-#            make initdir
-#            pip3 install qrcode
-#            URL=https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/releases/download
-#      #            qr $URL/$BUILD/Pandocker-Docs-$CIRCLE_BRANCH-$SHORT_HASH.pdf > images/QRcode.png
-#      - run:
-#          name: Make HTML
-#            make initdir html BRANCH=$CIRCLE_BRANCH HASH=$SHORT_HASH
-#      - run:
-#          name: Make PDF
-#            make initdir pdf BRANCH=$CIRCLE_BRANCH HASH=$SHORT_HASH
-#      - run:
-#          name: Make DOCX
-#          command: |
-#            make initdir docx BRANCH=$CIRCLE_BRANCH HASH=$SHORT_HASH
-#      - run:
-#          name: Deploy preparation
-#          command: |
-#            mkdir deploy
-#            mv Out/*.html deploy/
-#            mv Out/*.pdf deploy/
-#            mv Out/*.docx deploy/
-#      - run:
-#          name: Deploy
-#          command: |
-#            ghr -replace -t $GITHUB_TOKEN -u $CIRCLE_PROJECT_USERNAME -r $CIRCLE_PROJECT_REPONAME $BUILD deploy/
-#
+      - run:
+          name: Prepare ghr
+          command: |
+            mkdir build
+            cd build
+            wget -c https://github.com/tcnksm/ghr/releases/download/v0.5.4/ghr_v0.5.4_linux_amd64.zip
+            unzip ghr_v0.5.4_linux_amd64.zip
+            cp ./ghr /usr/local/bin
+      - run:
+          name: Prepare QR code for this build
+          command: |
+            make initdir
+            pip3 install qrcode
+            URL=https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/releases/download
+      - run:
+          name: Make HTML
+            make initdir html BRANCH=$CIRCLE_BRANCH HASH=$SHORT_HASH
+      - run:
+          name: Make PDF
+            make initdir pdf BRANCH=$CIRCLE_BRANCH HASH=$SHORT_HASH
+      - run:
+          name: Make DOCX
+          command: |
+            make initdir docx BRANCH=$CIRCLE_BRANCH HASH=$SHORT_HASH
+      - run:
+          name: Deploy preparation
+          command: |
+            mkdir deploy
+            mv Out/*.html deploy/
+            mv Out/*.pdf deploy/
+            mv Out/*.docx deploy/
+      - run:
+          name: Deploy
+          command: |
+            ghr -replace -t $GITHUB_TOKEN -u $CIRCLE_PROJECT_USERNAME -r $CIRCLE_PROJECT_REPONAME $BUILD deploy/
+
 workflows:
   version: 2
   build:
