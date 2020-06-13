@@ -2,11 +2,12 @@ version: 2
 jobs:
   build:
     docker:
-      - image: k4zuki/pandocker
+      - image: k4zuki/pandocker-alpine:2.8
+    steps:
+      - checkout
       - run:
           name: env variables
           command: |
-            # https://circleci.com/docs/2.0/env-vars/#setting-an-environment-variable-in-a-shell-command
             echo "export DATE=`date +%Y-%m%b-%d`" >> $BASH_ENV
             echo "export SHORT_HASH=${CIRCLE_SHA1:0:7}" >> $BASH_ENV
             source $BASH_ENV
@@ -32,13 +33,13 @@ jobs:
             make initdir
             pip3 install qrcode
             URL=https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/releases/download
-      #            qr $URL/$BUILD/Pandocker-Docs-$CIRCLE_BRANCH-$SHORT_HASH.pdf > images/QRcode.png
       - run:
           name: Make HTML
           command: |
             make initdir html BRANCH=$CIRCLE_BRANCH HASH=$SHORT_HASH
       - run:
           name: Make PDF
+          command: |
             make initdir pdf BRANCH=$CIRCLE_BRANCH HASH=$SHORT_HASH
       - run:
           name: Make DOCX
@@ -55,3 +56,9 @@ jobs:
           name: Deploy
           command: |
             ghr -replace -t $GITHUB_TOKEN -u $CIRCLE_PROJECT_USERNAME -r $CIRCLE_PROJECT_REPONAME $BUILD deploy/
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - "pandocker"
