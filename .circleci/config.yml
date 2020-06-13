@@ -10,16 +10,16 @@ jobs:
           name: env variables
           command: |
             echo "export DATE=`date +%Y-%m%b-%d`" >> $BASH_ENV
-#            echo "export SHORT_HASH=${CIRCLE_SHA1:0:7}" >> $BASH_ENV
-#            source $BASH_ENV
-#            echo "export BUILD=build-$CIRCLE_BUILD_NUM-$CIRCLE_BRANCH-$DATE-$SHORT_HASH" >> $BASH_ENV
-#            source $BASH_ENV
-#            echo "SHORT_HASH=" $SHORT_HASH
-#            echo "DATE=" $DATE
-#            echo "BUILD=" $BUILD
-#      - run:
-#          name: get submodule
-#          command: git submodule update --init
+            echo "export SHORT_HASH=${CIRCLE_SHA1:0:7}" >> $BASH_ENV
+            source $BASH_ENV
+            echo "export BUILD=build-$CIRCLE_BUILD_NUM-$CIRCLE_BRANCH-$DATE-$SHORT_HASH" >> $BASH_ENV
+            source $BASH_ENV
+            echo "SHORT_HASH=" $SHORT_HASH
+            echo "DATE=" $DATE
+            echo "BUILD=" $BUILD
+      - run:
+          name: get submodule
+          command: git submodule update --init
 #      - run:
 #          name: Prepare ghr
 #          command: |
