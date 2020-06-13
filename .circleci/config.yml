@@ -1,3 +1,4 @@
+# https://circleci.com/docs/2.0/env-vars/#setting-an-environment-variable-in-a-shell-command
 version: 2
 jobs:
   "pandocker":
@@ -5,12 +6,10 @@ jobs:
       - image: k4zuki/pandocker-alpine:2.8
     steps:
       - checkout
-      - run: ls
-#      - run:
-#          # https://circleci.com/docs/2.0/env-vars/#setting-an-environment-variable-in-a-shell-command
-#          name: env variables
-#          command: |
-#            echo "export DATE=`date +%Y-%m%b-%d`" >> $BASH_ENV
+      - run:
+          name: env variables
+          command: |
+            echo "export DATE=`date +%Y-%m%b-%d`" >> $BASH_ENV
 #            echo "export SHORT_HASH=${CIRCLE_SHA1:0:7}" >> $BASH_ENV
 #            source $BASH_ENV
 #            echo "export BUILD=build-$CIRCLE_BUILD_NUM-$CIRCLE_BRANCH-$DATE-$SHORT_HASH" >> $BASH_ENV
