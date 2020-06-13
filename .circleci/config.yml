@@ -36,6 +36,7 @@ jobs:
             URL=https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/releases/download
       - run:
           name: Make HTML
+          command: |
             make initdir html BRANCH=$CIRCLE_BRANCH HASH=$SHORT_HASH
       - run:
           name: Make PDF
