@@ -1,3 +1,8 @@
+::: rmnote
+![](images/Stargate-earth-glyph.svg)
+:::
+
+[](data/bob.bob){.svgbob}
 
 # まえがき {.unnumbered}
 #### **このドキュメントは何** {.unnumbered}
@@ -53,21 +58,31 @@ PLDといっても回路規模はとても小さく、たとえばLUTブロッ�
 
 SLG46826についてもっと知りたい方はDialog社のページを参照ください（<https://www.dialog-semiconductor.com/products/slg46826>）。
 
-\newpage
+## ピン配置がパッケージで真逆
 
-**おわかりいただけるだろうか**
+##### *おわかりいただけるだろうか*
+\
 
+::: {#fig:slg46826-pinout}
 ::: {.table width=[1.0] noheader=true}
 
-|  ![](images/slg46826-pinout-qfn.png){width=120mm}  |
-|:--------------------------------------------------:|
-| ![](images/slg46826-pinout-tssop.png){width=120mm} |
+|   ![STQFN](images/slg46826-pinout-qfn.png){width=100mm #fig:slg46826-pinout-qfn}   |
+|:----------------------------------------------------------------------------------:|
+| ![TSSOP](images/slg46826-pinout-tssop.png){width=100mm #fig:slg46826-pinout-tssop} |
 
 :::
+SLG46826ピン配置（データシートより抜粋）
+:::
 
-##### 謎の半導体メーカーD社
+\newpage
 
-# 回路図
-# 基板図
-##### Top view
-##### Bottom view
+# 変換基板「Chevron1」
+## 機能概要
+## 回路図
+## 基板図
+#### Top view {-}
+# あとがき {-}
+
+- [Stargate SG-1]{.underline}っていうSFシリーズ知ってる人いますか？
+- 表紙の画像は[<https://commons.wikimedia.org/wiki/File:Stargate-earth-glyph.svg>]{.underline}から拝借しました。
+  [[CC BY-SA 3.0 ライセンス]{.underline}](https://creativecommons.org/licenses/by-sa/3.0/deed.en)です。
