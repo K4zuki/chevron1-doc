@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: k4zuki/pandocker-alpine:2.8
+      - image: k4zuki/pandocker-alpine:2.10
     steps:
       - checkout
       - run:
