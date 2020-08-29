@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1024px" height="1024px">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str0 {stroke:black;stroke-width:29}
+    .str1 {stroke:white;stroke-width:50}
+    .fil0 {fill:white}
+    .fil1 {fill:none}    
+   ]]>
+  </style>
+ </defs>
+ <g>
+
+   <path class="fil0 str0" d="M51 973l461 -615 461 615 -359 0 103 -154 -205 -256 -205 256 103 154 -359 0z"/>
+   
+   <circle class="fil1 str1" cx="512" cy="205" r="116"/>
+   <circle class="fil1 str0" cx="512" cy="205" r="154"/>
+   <circle class="fil1 str0" cx="512" cy="205" r="77" />
+ </g> 
+</svg>

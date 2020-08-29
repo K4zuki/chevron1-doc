@@ -7,9 +7,9 @@ comiket: コミケ
 year: 2020
 publisher: 印刷会社で印刷製本
 docrevision: "1.0"
-# front: images/front-image.png
+front: "svg/MilkyWay-Stargate-blank.pdf"
 verbcolored: false
-# rmnote: false
+rmnote: true
 #toc-title: "Table of Contents"
 
 svgbob:
