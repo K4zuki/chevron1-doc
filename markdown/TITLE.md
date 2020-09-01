@@ -29,9 +29,11 @@ GreenPAK SLG46826の基本的な機能と基板の構成について解説しま
 ## GreenPAK SLG46826について {.unnumbered}
 
 SLG46826は、Silego Technology社（現在はDialog Semiconductor社に吸収）が開発した
-プログラム可能ロジックデバイス（PLD）の１品種です。
+PLD[^pld-stands-for]、「GreenPAK」の１品種です。
 PLDといっても回路規模はとても小さく、たとえばLUTブロックは20個程度しかありません。さらにそのLUTも
 2〜4入力の素子が混在しています。
+
+[^pld-stands-for]: Programmable Logic Device、プログラム可能ロジックデバイス
 
 他のラインナップと違い、[この品種だけ]{.underline}はフラッシュROMを搭載しており、I^2^Cバスから内部回路の
 書き換えが可能となっています。パッケージには0.4ミリピッチ20ピンQFNと
@@ -80,9 +82,13 @@ SLG46826ピン配置（データシートより抜粋）
 # 変換基板「Chevron1」
 ## 機能概要
 
-*Chevron1（しぇぶろん・わん）* はSLG46826GをDIP化し、オフィシャルDIP化基板"SLG46826V-DIP"[^slg46826-dip]とピン互換にしたものです。
-加えて、VDD1とVDD2をつなげるソルダジャンパ、I2Cプルアップ用ジャンパ、I2Cスレーブアドレス設定用ジャンパ、I2C接続用パッド、
-ISPライタ[^slgdvkisp]に接続するためのSHコネクタ（JST）を備えています。
+*Chevron1（しぇぶろん・わん）* はSLG46826GをDIP化し、オフィシャルDIP化基板
+"SLG46826V-DIP"[^slg46826-dip]とピン互換にしたものです。ピン互換に加えて、
+VDDとVDD2をブリッジするジャンパ、コンパレータ基準電圧入力（VREF）にパスコンを接続するジャンパ、
+I2Cバスプルアップ用ジャンパ、I2Cスレーブアドレス設定用ジャンパ、I2C接続用パッド、
+ISPライタ[^slgdvkisp]に接続できるコネクタを備えています（@fig:chevron1-pcb-outlook）。
+
+![基板外観](images/chevron1-pcb.png){width=120mm #fig:chevron1-pcb-outlook}
 
 [^slg46826-dip]: 20-pin DIP Proto Board,\
 <http://www.silego.com/buy/index.php?main_page=product_info&cPath=66_68&products_id=721>
@@ -91,13 +97,26 @@ ISPライタ[^slgdvkisp]に接続するためのSHコネクタ（JST）を備え
 
 \newpage
 
-#### ISPケーブルの例 {-}
+### VDD-VDD2ブリッジジャンパ
+### I2Cバスプルアップジャンパ
+### I2Cスレーブアドレス設定ジャンパ
+### 基準電圧入力 パスコン接続ジャンパ
+### ISPライタ接続用コネクタ
 
-ISPライタにはケーブルハーネスが付属しますが、SHではなく互換（後継？）のSRシリーズ[^isp-cable]のようです。
-SRは"みみ"がついておらず、一度コネクタに挿すと抜くのに*とても*難儀します。
-代替品として、スイッチサイエンスや秋月で売っているケーブルを使えます（@tbl:jst-sh-harness）。
+ISPライタに付属するケーブルハーネスを使用するためのコネクタです。JSTの表面実装タイプ4ピンSHコネクタ
+です。
 
-::: {.table width=[0.2,0.2,0.6]}
+#### **代替ISPケーブル** {.unnumbered}
+
+ISPライタ付属ケーブルはSHではなく互換（後継？）のSRコネクタ[^isp-cable]のようです。
+SRコネクタには"みみ"がついておらず、一度コネクタに挿すと抜くのに*とても*難儀し、少し不便です。
+代替品として、スイッチサイエンスで売られているQwiicケーブルや秋月のコネクタ付コード
+を使えます（@tbl:jst-sh-harness）。
+
+特にスイッチサイエンスで売られている"Qwiicケーブル（Qwiic - 4ピンオス）"は片側がジャンパピンなので
+DIPライタにつなげることができます。ワイヤの配色がQwiic準拠なので、筆者はコンタクトを入れ替えて使っています。
+
+::: {.table width=[0.25,0.22,0.6]}
 : SHコネクタ互換ケーブル {#tbl:jst-sh-harness}
 
 | ショップ           | 商品名                             | URL                                            |
@@ -114,12 +133,9 @@ SRは"みみ"がついておらず、一度コネクタに挿すと抜くのに*
 （<https://www.digikey.com/product-detail/en/jst-sales-america-inc/A04SR04SR30K152B/455-3014-ND/6009390>）
 ぽい
 
-## 回路図
-## 基板図
-#### Top view {-}
 # あとがき {-}
 
 - [Stargate SG-1]{.underline}っていうSFシリーズ知ってる人いますか？
 - 表紙の画像は
-- [<https://commons.wikimedia.org/wiki/File:MilkyWay_Stargate_blank.svg>]{.underline}から拝借し、編集しました。
+  [<https://commons.wikimedia.org/wiki/File:MilkyWay_Stargate_blank.svg>]{.underline}から拝借し、編集しました。
   [[CC BY-SA 3.0 ライセンス]{.underline}](https://creativecommons.org/licenses/by-sa/3.0/deed.en)です。
