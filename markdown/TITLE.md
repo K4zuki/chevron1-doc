@@ -3,7 +3,7 @@
 :::
 
 # まえがき {.unnumbered}
-#### **このドキュメントは何** {.unnumbered}
+## このドキュメントは何
 
 この本は、Dialog Semiconductor社GreenPAKシリーズSLG46826[G]{.underline}（TSSOP）を同[V]{.underline}（STQFN）
 のピン配置に変換し、ライタ[^gpak-dip-writer-silego][^gpak-dip-writer-ssci]に挿せるようにするDIP化基板
@@ -12,7 +12,7 @@
 「GreenPAK勝手に勉強会」というTwitterフレンズの集まり（サークルではない）の協力を得て
 作りました。
 
-#### **このドキュメントのゴール** {.unnumbered}
+## このドキュメントのゴー
 
 GreenPAK SLG46826の基本的な機能と基板の構成について解説します。「GreenPAK勝手にアプリケーションノート」
 シリーズ[^silego-trial-report][^gpak-personal-appsnote]をあらかじめ読んでいただくことをおすすめします。
@@ -26,14 +26,13 @@ GreenPAK SLG46826の基本的な機能と基板の構成について解説しま
 [^gpak-dip-writer-ssci]: GreenPAK DIP Development Board SLG4DVKDIP, \
 <https://www.switch-science.com/catalog/4111/>
 
-## GreenPAK SLG46826について {.unnumbered}
+## GreenPAK SLG46826について
 
 SLG46826は、Silego Technology社（現在はDialog Semiconductor社に吸収）が開発した
-PLD[^pld-stands-for]、「GreenPAK」の１品種です。
-PLDといっても回路規模はとても小さく、たとえばLUTブロックは20個程度しかありません。さらにそのLUTも
-2〜4入力の素子が混在しています。
+PLD[^pld-stands-for]、「GreenPAK」の１品種です。PLDといっても回路規模はとても小さく、
+たとえばLUTは2〜4入力のマクロセルが混在し、合計20個程度しかありません。
 
-[^pld-stands-for]: Programmable Logic Device、プログラム可能ロジックデバイス
+[^pld-stands-for]: Programmable Logic Device, プログラム可能ロジックデバイス
 
 他のラインナップと違い、[この品種だけ]{.underline}はフラッシュROMを搭載しており、I^2^Cバスから内部回路の
 書き換えが可能となっています。パッケージには0.4ミリピッチ20ピンQFNと
@@ -55,25 +54,18 @@ PLDといっても回路規模はとても小さく、たとえばLUTブロッ�
 
 :::
 
-- [*1]{#brief-note1}: VDD2はVDDを超えないこと
-- [*2]{#brief-note2}: LUT/DFF/CNT/DLYは同時使用できない
+- [*1]{#brief-note1}: VDD2はVDDを超えない（VDD&ge;VDD2）こと
+- [*2]{#brief-note2}: 単一マクロセル内のLUT/DFF/CNT/DLYは同時使用できないことに注意
 
 さらなる詳細やデータシートはDialog社のページを参照ください（<https://www.dialog-semiconductor.com/products/slg46826>）。
 
-### ピン配置がパッケージで真逆 {.unnumbered}
+### ピン配置がパッケージで真逆
 
-#### *おわかりいただけるだろうか* {.unnumbered}
+同一品番でパッケージが異なるものはラインナップにいくつかありますが、SLG46826もその一つです。
+ただしこのICはパッケージ間でピン配置が完全に逆順です([@tbl:slg46826-pinout])。
 
-::: {#fig:slg46826-pinout}
-::: {.table width=[1.0] noheader=true}
 
-|   ![STQFN](images/slg46826-pinout-qfn.png){width=120mm #fig:slg46826-pinout-qfn}   |
-|:----------------------------------------------------------------------------------:|
-| ![TSSOP](images/slg46826-pinout-tssop.png){width=120mm #fig:slg46826-pinout-tssop} |
-
-:::
-SLG46826ピン配置（データシートより抜粋）
-:::
+[Pinout](data/pinout.csv){.table #tbl:slg46826-pinout alignment=CCCCC width=[0.15,0.15,0.2,0.3,0.2]}
 
 \toc
 
@@ -98,9 +90,24 @@ ISPライタ[^slgdvkisp]に接続できるコネクタを備えています（@f
 \newpage
 
 ### VDD-VDD2ブリッジジャンパ
-### I2Cバスプルアップジャンパ
-### I2Cスレーブアドレス設定ジャンパ
+
+SLG46826は2系統の電源を取り扱えますが、1系統で使いたい場合にVDD2をVDDに直結できるジャンパを設けました。
+
+### I^2^Cバスプルアップジャンパ
+
+I^2^Cバス（SDA/SCL）を4.7K&Omega;でVDDに接続するジャンパです。
+I^2^Cバスマスタがプルアップを用意していない場合に使います。
+
+### I^2^Cスレーブアドレス設定ジャンパ
+
+SLG46826はIO2/3/4/5ピンをI^2^Cスレーブアドレス設定に使うことができます。これらのジャンパをショートすると
+それぞれのピンを4.7K&Omega;でVDDにプルアップします。
+
 ### 基準電圧入力 パスコン接続ジャンパ
+
+IO1ピンにバイパスコンデンサ0.1&micro;Fを接続するジャンパです。アナログコンパレータの＋入力に
+IO1（Vref IN）を使うときに使用します。
+
 ### ISPライタ接続用コネクタ
 
 ISPライタに付属するケーブルハーネスを使用するためのコネクタです。JSTの表面実装タイプ4ピンSHコネクタ
@@ -119,12 +126,13 @@ DIPライタにつなげることができます。ワイヤの配色がQwiic準
 ::: {.table width=[0.25,0.22,0.6]}
 : SHコネクタ互換ケーブル {#tbl:jst-sh-harness}
 
-| ショップ           | 商品名                             | URL                                            |
-|:-------------------|:-----------------------------------|:-----------------------------------------------|
-| スイッチサイエンス | Qwiicケーブル（50mm）              | <https://www.switch-science.com/catalog/3542/> |
-|                    | Qwiicケーブル（100mm）             | <https://www.switch-science.com/catalog/3543/> |
-|                    | Qwiicケーブル（Qwiic - 4ピンオス） | <https://www.switch-science.com/catalog/3541/> |
-| 秋月               | コネクタ付コード 4P (青白黒赤)     | <http://akizukidenshi.com/catalog/g/gC-15383/> |
+| ショップ           | 商品名                                                     | URL                                            |
+|:-------------------|:-----------------------------------------------------------|:-----------------------------------------------|
+| スイッチサイエンス | Qwiicケーブル（50mm）                                      | <https://www.switch-science.com/catalog/3542/> |
+|                    | Qwiicケーブル（100mm）                                     | <https://www.switch-science.com/catalog/3543/> |
+|                    | Qwiicケーブル（Qwiic - 4ピンオス）                         | <https://www.switch-science.com/catalog/3541/> |
+|                    | Qwiic互換 JST SH型 4ピンコネクタ付きジャンパワイヤ（オス） | <https://www.switch-science.com/catalog/5890/> |
+| 秋月               | コネクタ付コード 4P (青白黒赤)                             | <http://akizukidenshi.com/catalog/g/gC-15383/> |
 
 :::
 
@@ -135,7 +143,7 @@ DIPライタにつなげることができます。ワイヤの配色がQwiic準
 
 # あとがき {-}
 
-- [Stargate SG-1]{.underline}っていうSFシリーズ知ってる人いますか？
+- [Stargate SG-1]{.underline}っていう海外SFドラマシリーズ知ってる人いますか？
 - 表紙の画像は
   [<https://commons.wikimedia.org/wiki/File:MilkyWay_Stargate_blank.svg>]{.underline}から拝借し、編集しました。
   [[CC BY-SA 3.0 ライセンス]{.underline}](https://creativecommons.org/licenses/by-sa/3.0/deed.en)です。
