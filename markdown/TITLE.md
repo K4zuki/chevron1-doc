@@ -143,6 +143,7 @@ DIPライタにつなげることができます。ワイヤの配色がQwiic準
 
 # あとがき {-}
 
+- 原稿PDFはこのQRコードからたどってください ![](images/QRcode.png){#img:manuscript width=30%}
 - [Stargate SG-1]{.underline}っていう海外SFドラマシリーズ知ってる人いますか？
 - 表紙の画像は
   [<https://commons.wikimedia.org/wiki/File:MilkyWay_Stargate_blank.svg>]{.underline}から拝借し、編集しました。
