@@ -143,8 +143,19 @@ DIPライタにつなげることができます。ワイヤの配色がQwiic準
 
 # あとがき {-}
 
+<!--
 - 原稿PDFはこのQRコードからたどってください ![](images/QRcode.png){#img:manuscript width=30%}
+- この基板の設計に協力してくださった諸氏に謝意を示します。
+  - そんそん(<https://twitter.com/sonson1919>)
+  - あおいさや(<https://twitter.com/La_zlo>)
+  - 余熱＠れすぽん(<https://twitter.com/yone2_net>)
+  - niszet(<https://twitter.com/niszet0>)
+  - Kashiken(<https://twitter.com/kashiken>)
+-->
 - [Stargate SG-1]{.underline}っていう海外SFドラマシリーズ知ってる人いますか？
 - 表紙の画像は
   [<https://commons.wikimedia.org/wiki/File:MilkyWay_Stargate_blank.svg>]{.underline}から拝借し、編集しました。
   [[CC BY-SA 3.0 ライセンス]{.underline}](https://creativecommons.org/licenses/by-sa/3.0/deed.en)です。
+
+https://github.com/K4zuki/chevron1-doc/releases/download/build-32-master-2020-09Sep-06-88254d1/GreenPAK-DIP-board-Chevron1-06-Sep-2020-88254d1.pdf
+https://github.com/K4zuki/chevron1-doc/releases/download/build-32-master-2020-09Sep-06-88254d1/GreenPAK-DIP-board-Chevron1-06-Sep-2020-88254d1.pdf
