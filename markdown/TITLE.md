@@ -74,7 +74,7 @@ PLD[^pld-stands-for]、「GreenPAK」の１品種です。PLDといっても回�
 # 変換基板「Chevron1」
 ## 機能概要
 
-*Chevron1（しぇぶろん・わん）* はSLG46826GをDIP化し、オフィシャルDIP化基板
+*Chevron1（しぇぶろん・わん）* は、SLG46826Gを20ピン、300mil幅にDIP化し、オフィシャルDIP化基板
 "SLG46826V-DIP"[^slg46826-dip]とピン互換にしたものです。ピン互換に加えて、
 VDDとVDD2をブリッジするジャンパ、コンパレータ基準電圧入力（VREF）にパスコンを接続するジャンパ、
 I2Cバスプルアップ用ジャンパ、I2Cスレーブアドレス設定用ジャンパ、I2C接続用パッド、
@@ -121,7 +121,8 @@ SRコネクタには"みみ"がついておらず、一度コネクタに挿す�
 を使えます（@tbl:jst-sh-harness）。
 
 特にスイッチサイエンスで売られている"Qwiicケーブル（Qwiic - 4ピンオス）"は片側がジャンパピンなので
-DIPライタにつなげることができます。ワイヤの配色がQwiic準拠なので、筆者はコンタクトを入れ替えて使っています。
+DIPライタ・ISPライタのどちらにもつなげることができます。ワイヤの配色がQwiic準拠なので、
+筆者はコンタクトを入れ替えて使っています。
 
 ::: {.table width=[0.25,0.22,0.6]}
 : SHコネクタ互換ケーブル {#tbl:jst-sh-harness}
@@ -143,8 +144,8 @@ DIPライタにつなげることができます。ワイヤの配色がQwiic準
 
 # あとがき {-}
 
-- 原稿PDFはこのQRコードからたどってください ![](images/QRcode.png){#img:manuscript width=30%}
-- [Stargate SG-1]{.underline}っていう海外SFドラマシリーズ知ってる人いますか？
+- 原稿PDFはこのQRコードからたどってください ![](images/QRcode.png){#fig:manuscript width=30%}
+- `{\large`{=latex}[Stargate SG-1]{.underline}っていう海外SFドラマシリーズ知ってる人いますか？`}`{=latex}
 - 表紙の画像は
   [<https://commons.wikimedia.org/wiki/File:MilkyWay_Stargate_blank.svg>]{.underline}から拝借し、編集しました。
   [[CC BY-SA 3.0 ライセンス]{.underline}](https://creativecommons.org/licenses/by-sa/3.0/deed.en)です。
