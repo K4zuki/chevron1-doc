@@ -1,17 +1,17 @@
 ---
 title: 勝手にGreenPAK基板つくってみた
-subtitle: Chevron1 encoded
+subtitle: Chevron1 Encoded
 circle: GreenPAK勝手に勉強会
 author: "@_K4ZUKI_"
-comiket: コミケ
+comiket: おもしろ同人誌バザール9
 year: 2020
 publisher: 印刷会社で印刷製本
 docrevision: "1.0"
-front: "svg/MilkyWay-Stargate-blank.pdf"
+front: "`svg/MilkyWay_Stargate_blank.pdf`{=latex}"
 frontoption:
-  - scale=1.25
-  - position=current page.south
-  - vshift=5.5cm
+  - scale=1.8
+  - position=current page.south west
+  - hshift=2cm
   - angle=0
 verbcolored: false
 rmnote: true
