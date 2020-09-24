@@ -1,5 +1,5 @@
 ::: rmnote
-![](images/MilkyWay-Stargate-blank.svg)
+![](images/MilkyWay_Stargate_blank.svg)
 :::
 
 # まえがき {.unnumbered}
@@ -166,7 +166,7 @@ DIPライタ・ISPライタのどちらにもつなげることができます�
 - 原稿PDFはこのQRコードからたどってください ![](images/QRcode.png){#fig:manuscript width=30%}
 - `{\large`{=latex}[Stargate SG-1]{.underline}っていう海外SFドラマシリーズ知ってる人いますか？`}`{=latex}
 - 表紙の画像は
-  [<https://commons.wikimedia.org/wiki/File:MilkyWay_Stargate_blank.svg>]{.underline}から拝借し、編集しました。
+  [<https://commons.wikimedia.org/wiki/File:MilkyWay_Stargate_blank.svg>]{.underline}から拝借しました。
   [[CC BY-SA 3.0 ライセンス]{.underline}](https://creativecommons.org/licenses/by-sa/3.0/deed.en)です。
 
 ## 謝辞 {-}
