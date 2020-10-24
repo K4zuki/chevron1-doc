@@ -68,7 +68,7 @@ docx_coreprop:
     "Normal Table": "Centered"
   paragraph:
     "Image Caption": "Figure Caption"
-  #    "Normal": "Body Text"
-  #    "First Paragraph": "Body Text"
+    "Normal": "Body Text"
+    "First Paragraph": "Body Text"
   character:
 ...
