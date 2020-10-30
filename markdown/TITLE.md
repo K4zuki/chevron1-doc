@@ -103,6 +103,8 @@ ISPライタ[^slgdvkisp]に接続できるコネクタを備えています（@f
 
 \newpage
 
+![ピン配置](images/chevron1-pinout.png){width=120mm #fig:chevron1-pcb-pinout}
+
 ### VDD-VDD2ブリッジジャンパ
 
 SLG46826は2系統の電源を取り扱えますが、まとめて1系統で使いたい場合にVDD2をVDDに直結できるジャンパを設けました。
@@ -173,8 +175,6 @@ DIPライタ・ISPライタのどちらにもつなげることができます�
 [^isp-cable]: この系統
 （<https://www.digikey.com/product-detail/en/jst-sales-america-inc/A04SR04SR30K152B/455-3014-ND/6009390>）
 ぽい
-
-\newpage
 
 ### GreenPAK Designer IDE上の扱い
 
