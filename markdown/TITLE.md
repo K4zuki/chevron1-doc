@@ -14,7 +14,7 @@
 
 ## このドキュメントのゴール
 
-GreenPAK SLG46826の基本的な機能と基板の構成について解説します。「GreenPAK勝手にアプリケーションノート」
+GreenPAK SLG46826の基本的な機能と、変換基板「Chevron1」の構成について解説します。「GreenPAK勝手にアプリケーションノート」
 シリーズ[^silego-trial-report][^gpak-personal-appsnote]をあらかじめ読んでいただくことをおすすめします。
 
 [^silego-trial-report]: GreenPAK SLG46826 試してみたレポート,\
@@ -38,19 +38,19 @@ PLD[^pld-stands-for]、「GreenPAK」の１品種です。PLDといっても回�
 書き換えが可能となっています。パッケージには0.4ミリピッチ20ピンQFNと
 0.65ミリピッチ20ピンTSSOPのオプションがあります。なお、この基板ではTSSOPパッケージを採用しています。
 
-::: {.table width=[0.3,0.7] noheader=true}
+::: {.table width=[0.1,0.4,0.4,0.1] noheader=true}
 : SLG46826諸元（抜粋） {#tbl:slg46826-brief}
 
-|            電源電圧(VDD)            |            2.5〜5.0 [V]            |
-|:-----------------------------------:|:----------------------------------:|
-|           電源電圧(VDD2)            | 1.8〜5.0 [V]（[*1](#brief-note1)） |
-|                IO数                 |                 17                 |
-|   最大LUT数（[*2](#brief-note2)）   |                 19                 |
-|   最大DFF数（[*2](#brief-note2)）   |                 17                 |
-| 最大CNT/DLY数（[*2](#brief-note2)） |                 8                  |
-|           内蔵オシレータ            | 1x 2.048KHz、1x 2.048MHz、1x 25MHz |
-|        アナログコンパレータ         |    2x High Speed、2x Low Power     |
-|                通信                 |               I^2^C                |
+|     |            [**電源電圧(VDD)**]{.underline}            |            2.5〜5.0 [V]            |     |
+|:---:|:-----------------------------------------------------:|:----------------------------------:|:---:|
+|     |           [**電源電圧(VDD2)**]{.underline}            | 1.8〜5.0 [V]（[*1](#brief-note1)） |     |
+|     |                [**IO数**]{.underline}                 |                 17                 |     |
+|     |   [**最大LUT数**]{.underline}（[*2](#brief-note2)）   |                 19                 |     |
+|     |   [**最大DFF数**]{.underline}（[*2](#brief-note2)）   |                 17                 |     |
+|     | [**最大CNT/DLY数**]{.underline}（[*2](#brief-note2)） |                 8                  |     |
+|     |           [**内蔵オシレータ**]{.underline}            | 1x 2.048KHz、1x 2.048MHz、1x 25MHz |     |
+|     |        [**アナログコンパレータ**]{.underline}         |    2x High Speed、2x Low Power     |     |
+|     |                [**通信**]{.underline}                 |               I^2^C                |     |
 
 :::
 
@@ -62,8 +62,22 @@ PLD[^pld-stands-for]、「GreenPAK」の１品種です。PLDといっても回�
 ### ピン配置がパッケージで真逆
 
 同一品番でパッケージが異なるものはラインナップにいくつかありますが、SLG46826もその一つです。
-ただしこのICはパッケージ間でピン配置が完全に逆順です([@tbl:slg46826-pinout])。
+ただしこのICはパッケージ間でピン配置が完全に逆順です(次ページ[@fig:pinout-diff] / [@tbl:slg46826-pinout])。
 
+\newpage
+
+::: {#fig:pinout-diff}
+::: {.table width=[1.0] noheader=true}
+
+|   ![QFNパッケージ](images/slg46826-pinout-qfn.png){width=120mm}   |
+|:-----------------------------------------------------------------:|
+| ![TSSOPパッケージ](images/slg46826-pinout-tssop.png){width=120mm} |
+
+:::
+SLG46826のピン配置
+:::
+
+\newpage
 
 [Pinout](data/pinout.csv){.table #tbl:slg46826-pinout alignment=CCCCC width=[0.15,0.15,0.2,0.3,0.2]}
 
@@ -156,10 +170,18 @@ DIPライタ・ISPライタのどちらにもつなげることができます�
 
 :::
 
-
 [^isp-cable]: この系統
 （<https://www.digikey.com/product-detail/en/jst-sales-america-inc/A04SR04SR30K152B/455-3014-ND/6009390>）
 ぽい
+
+\newpage
+
+### GreenPAK Designer IDE上の扱い
+
+SLG46826はパッケージで型番が分かれていますが、IDEが認識する[内部的なIDは同一]{.underline}なので、
+新規に回路を設計するときはSTQFNパッケージを選んだほうがピン配置で混乱せずにすみます（[@fig:ide-develop]）。
+
+![STQFN](images/ide-chip-selection.png){#fig:ide-develop}
 
 # あとがき {-}
 
@@ -171,7 +193,7 @@ DIPライタ・ISPライタのどちらにもつなげることができます�
 
 ## 謝辞 {-}
 
-「Chevron1」の企画・設計に協力してくださった諸氏に謝意を示します（敬称略）。
+「Chevron1」の企画・設計・製造に協力してくださった「GreenPAK勝手に勉強会」諸氏に謝意を表します（敬称略）。
 
 - そんそん(<https://twitter.com/sonson1919>)
 - あおいさや(<https://twitter.com/La_zlo>)
